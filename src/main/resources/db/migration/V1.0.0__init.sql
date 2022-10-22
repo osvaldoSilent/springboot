@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS `USUARIO`(
+    `id_user` INTEGER  PRIMARY KEY AUTO_INCREMENT,
+    `username` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS `GITHUBPROJECT`(
+    `id_gitproject` INTEGER  PRIMARY KEY AUTO_INCREMENT,
+    `name` VARCHAR(50) NOT NULL,
+    `org` VARCHAR(50) NOT NULL
+);
+
+CREATE INDEX idx_id_usuario ON USUARIO(id_user);
+CREATE INDEX idx_id_gitproject ON GITHUBPROJECT(id_gitproject);
