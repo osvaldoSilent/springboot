@@ -13,12 +13,13 @@ import java.util.List;
 
 @RestController
 public class GitController {
+    @Autowired
+    RestTemplateBuilder builder;
+
     @GetMapping("/git")
     public String holaGit(@RequestParam(value="word",defaultValue = "World") String param){
         return "Hello " +param;
     }
-    @Autowired
-    RestTemplateBuilder builder;
 
     @GetMapping("/client-for-git")
     public String callToGit(){

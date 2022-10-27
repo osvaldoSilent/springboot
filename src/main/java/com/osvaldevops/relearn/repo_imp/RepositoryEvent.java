@@ -6,26 +6,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.OffsetDateTime;
 
 public class RepositoryEvent {
-    private final Type type;
+
     private final OffsetDateTime creationTime;
     private final Actor actor;
-    private final Issue issue;
 
     @JsonCreator
     public  RepositoryEvent(
-            @JsonProperty() String type,
-            @JsonProperty() OffsetDateTime creationTime,
-            @JsonProperty() Actor actor,
-            @JsonProperty() Issue issue
+
+            @JsonProperty("created_at") OffsetDateTime creationTime,
+            @JsonProperty("user") Actor actor
     ){
-        this.type = Type.valueOf(type);
+
+
+        System.out.println(creationTime);
+
+        System.out.println(actor);
+
+
         this.creationTime = creationTime;
         this.actor = actor;
-        this.issue = issue;
-    }
-
-    public Type getType() {
-        return type;
+        System.out.println(this.creationTime);
+        System.out.println(this.actor);
     }
 
     public OffsetDateTime getCreationTime() {
@@ -34,10 +35,6 @@ public class RepositoryEvent {
 
     public Actor getActor() {
         return actor;
-    }
-
-    public Issue getIssue() {
-        return issue;
     }
 
     public enum Type{
@@ -61,7 +58,8 @@ public class RepositoryEvent {
         HEAD_REF_RESTORED("head_ref_restored"),
         CONVERTED_NOTE_TO_ISSUE("converted_note_to_issue"),
         MOVED_COLUMNS_IN_PROJECT("moved_columns_in_project"),
-        MARKED_AS_DUPLICATE("marked_as_duplicate-");
+        MARKED_AS_DUPLICATE("marked_as_duplicate-"),
+        USER("user");
 
         private String type;
         Type(String type) {

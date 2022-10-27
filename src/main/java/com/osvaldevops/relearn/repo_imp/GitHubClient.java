@@ -8,7 +8,8 @@ import org.springframework.web.client.RestTemplate;
 
 @Component
 public class GitHubClient {
-    private static final String EVENT_ISSUES_URL = "https://api.github.com/repos/OSVALDEVOPS/SPRINGBOOT/issues/events";
+
+    private static final String EVENT_ISSUES_URL = "https://api.github.com/repos/OsvaldoSilent/springboot/issues";
     private final RestTemplate restTemplate;
     public GitHubClient(RestTemplateBuilder builder){
         this.restTemplate = builder.build();
